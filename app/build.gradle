@@ -21,6 +21,8 @@ android {
         versionName "1.0"
 
         buildConfigField 'String', 'BASE_URL', base_url
+        buildConfigField 'String', 'API_KEY', api_key
+        buildConfigField 'String', 'API_VERSION', api_version
     }
 
     buildTypes {
@@ -108,8 +110,6 @@ kapt {
     correctErrorTypes true // Allow references to generated code
 }
 
-// TODO : enable detekt
-// config file (app/config/detekt.yml) & baseline file (app/config/baseline.xml)
 detekt {
     buildUponDefaultConfig = true // preconfigure defaults
     allRules = false // activate all available (even unstable) rules.
