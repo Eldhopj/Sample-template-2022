@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.model
+package com.eldhopj.myapplication.data.model
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName

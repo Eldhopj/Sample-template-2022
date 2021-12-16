@@ -1,10 +1,10 @@
-package com.eldhopj.myapplication.ui.home
+package com.eldhopj.myapplication.ui.view.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eldhopj.myapplication.model.News
-import com.eldhopj.myapplication.ui.repositories.EveryThingApiRepo
+import com.eldhopj.myapplication.data.model.News
+import com.eldhopj.myapplication.data.repositories.EveryThingApiRepo
 import com.eldhopj.myapplication.utils.network.NetworkResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

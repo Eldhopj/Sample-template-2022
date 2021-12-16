@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.api.queries
+package com.eldhopj.myapplication.data.api.queries
 
 /**
  * Every thing api query

@@ -1,6 +1,6 @@
-package com.eldhopj.myapplication.api.service
+package com.eldhopj.myapplication.data.api.service
 
-import com.eldhopj.myapplication.model.News
+import com.eldhopj.myapplication.data.model.News
 import com.eldhopj.myapplication.utils.constants.ApiEndPoints
 import com.eldhopj.myapplication.utils.network.NetworkResponse
 import retrofit2.Response

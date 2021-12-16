@@ -1,8 +1,8 @@
-package com.eldhopj.myapplication.api.handler
+package com.eldhopj.myapplication.data.api.handler
 
-import com.eldhopj.myapplication.api.queries.EveryThingApiQuery
-import com.eldhopj.myapplication.api.service.EveryThingApiService
-import com.eldhopj.myapplication.model.News
+import com.eldhopj.myapplication.data.api.queries.EveryThingApiQuery
+import com.eldhopj.myapplication.data.api.service.EveryThingApiService
+import com.eldhopj.myapplication.data.model.News
 import javax.inject.Inject
 import javax.inject.Singleton
 import retrofit2.Response

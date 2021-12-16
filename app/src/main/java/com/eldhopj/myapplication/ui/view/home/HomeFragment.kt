@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.ui.home
+package com.eldhopj.myapplication.ui.view.home
 
 import android.os.Bundle
 import android.util.Log
