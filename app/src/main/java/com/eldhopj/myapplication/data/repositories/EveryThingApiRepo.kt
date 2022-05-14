@@ -3,7 +3,7 @@ package com.eldhopj.myapplication.data.repositories
 import com.eldhopj.myapplication.data.remote.NetworkResponse
 import com.eldhopj.myapplication.data.remote.handler.EveryThingApiHandler
 import com.eldhopj.myapplication.domain.model.News
-import com.eldhopj.myapplication.domain.utils.constants.StringConstants
+import com.eldhopj.myapplication.utils.constants.StringConstants
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.Dispatchers

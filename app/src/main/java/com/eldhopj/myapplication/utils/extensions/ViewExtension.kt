@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.domain.utils.extensions
+package com.eldhopj.myapplication.utils.extensions
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
