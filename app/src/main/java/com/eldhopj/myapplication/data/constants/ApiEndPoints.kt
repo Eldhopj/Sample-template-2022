@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.domain.utils.constants
+package com.eldhopj.myapplication.data.constants
 
 import com.eldhopj.myapplication.BuildConfig
 

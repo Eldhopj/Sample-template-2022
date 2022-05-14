@@ -1,8 +1,8 @@
 package com.eldhopj.myapplication.data.remote.service
 
+import com.eldhopj.myapplication.data.constants.ApiEndPoints
 import com.eldhopj.myapplication.data.remote.NetworkResponse
 import com.eldhopj.myapplication.domain.model.News
-import com.eldhopj.myapplication.domain.utils.constants.ApiEndPoints
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
