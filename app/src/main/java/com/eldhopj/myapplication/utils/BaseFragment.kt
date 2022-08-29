@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.presentation.base
+package com.eldhopj.myapplication.utils
 
 import android.os.Bundle
 import android.view.LayoutInflater

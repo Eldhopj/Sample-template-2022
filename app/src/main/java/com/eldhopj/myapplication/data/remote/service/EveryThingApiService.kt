@@ -1,7 +1,7 @@
 package com.eldhopj.myapplication.data.remote.service
 
 import com.eldhopj.myapplication.data.constants.ApiEndPoints
-import com.eldhopj.myapplication.data.remote.NetworkResponse
+import com.eldhopj.myapplication.data.remote.Result
 import com.eldhopj.myapplication.domain.model.News
 import retrofit2.Response
 import retrofit2.http.GET
@@ -16,7 +16,7 @@ interface EveryThingApiService {
     /**
      * API to perform login op with the server & returns the subscriber information once it is success.
      *
-     * @return [NetworkResponse]
+     * @return [Result]
      */
     @GET(ApiEndPoints.EVERYTHING)
     suspend fun everyThing(

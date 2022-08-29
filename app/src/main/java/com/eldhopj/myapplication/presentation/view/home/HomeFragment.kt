@@ -1,13 +1,12 @@
 package com.eldhopj.myapplication.presentation.view.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
-import com.eldhopj.myapplication.data.remote.NetworkResponse
 import com.eldhopj.myapplication.databinding.FragmentHomeBinding
-import com.eldhopj.myapplication.presentation.base.BaseFragment
+import com.eldhopj.myapplication.utils.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import logcat.logcat
 
 /**
  * Home fragment
@@ -27,19 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private fun observeNews() {
         viewModel.newsLiveData.observe(viewLifecycleOwner) {
-            when (it) {
-                is NetworkResponse.Loading -> {
-
-                }
-                is NetworkResponse.Success -> {
-                    it.data?.let {
-                        Log.d("observeNews", it.toString())
-                    }
-                }
-                is NetworkResponse.Error -> {
-                    Log.d("observeNews", it.message)
-                }
-            }
+            logcat("news_data") { it.toString() }
         }
     }
 }
