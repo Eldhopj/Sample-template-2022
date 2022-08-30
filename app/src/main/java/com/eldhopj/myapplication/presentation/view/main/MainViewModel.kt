@@ -1,7 +1,7 @@
 package com.eldhopj.myapplication.presentation.view.main
 
 import androidx.lifecycle.ViewModel
-import com.eldhopj.myapplication.data.repositories.EveryThingApiRepo
+import com.eldhopj.myapplication.data.repositories.EveryThingApiRepoImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -13,7 +13,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val repoEveryThing: EveryThingApiRepo,
+    private val repoEveryThing: EveryThingApiRepoImpl,
 ) : ViewModel() {
     //
 }

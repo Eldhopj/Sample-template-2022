@@ -6,10 +6,9 @@ import androidx.lifecycle.viewModelScope
 import com.eldhopj.myapplication.data.remote.Result
 import com.eldhopj.myapplication.data.repositories.EveryThingApiRepo
 import com.eldhopj.myapplication.domain.model.News
-import com.eldhopj.myapplication.utils.BaseViewModel
+import com.eldhopj.myapplication.utils.bases.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 /**

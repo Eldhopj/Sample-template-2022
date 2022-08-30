@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.utils
+package com.eldhopj.myapplication.utils.bases
 
 import com.eldhopj.myapplication.data.remote.ErrorData
 import com.eldhopj.myapplication.data.remote.Result
@@ -19,7 +19,7 @@ open class BaseRepository {
 
 
     /**
-     * Safe d b call
+     * Safe db call
      *
      * @param T  data type
      * @param dispatcher CoroutineDispatcher

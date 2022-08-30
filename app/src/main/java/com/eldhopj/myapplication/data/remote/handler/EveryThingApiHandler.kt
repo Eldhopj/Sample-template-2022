@@ -18,11 +18,9 @@ import retrofit2.Retrofit
 @Singleton
 class EveryThingApiHandler @Inject constructor(retrofit: Retrofit) {
 
-    private val everyThingApiService: EveryThingApiService by lazy {
-        retrofit.create(
-            EveryThingApiService::class.java
-        )
-    }
+    private val everyThingApiService: EveryThingApiService = retrofit.create(
+        EveryThingApiService::class.java
+    )
 
     /**
      * API to get categories
