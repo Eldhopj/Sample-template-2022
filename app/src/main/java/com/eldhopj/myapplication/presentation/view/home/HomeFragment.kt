@@ -24,6 +24,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         observeNews()
     }
 
+    override fun viewCreated(binding: FragmentHomeBinding) {
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+    }
+
     private fun observeNews() {
         viewModel.newsLiveData.observe(viewLifecycleOwner) {
             logcat("news_data") { it.toString() }

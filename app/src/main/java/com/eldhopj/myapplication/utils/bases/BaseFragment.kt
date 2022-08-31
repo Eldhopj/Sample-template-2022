@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
 
 /**
- * Base fragment with view binding ,and other common stuffs
+ * Base fragment with data binding ,and other common stuffs
  *
  * @param T
  * @constructor Create empty Base fragment view binding
  */
-abstract class BaseFragment<T : ViewBinding>(private val bindingInflater: (inflater: LayoutInflater) -> T) :
+abstract class BaseFragment<T : ViewDataBinding>(private val bindingInflater: (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> T) :
     Fragment() {
 
     // Bindings
@@ -29,9 +29,16 @@ abstract class BaseFragment<T : ViewBinding>(private val bindingInflater: (infla
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = bindingInflater.invoke(inflater)
+        _binding = bindingInflater.invoke(inflater, container, false)
         return binding?.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding?.let { viewCreated(it) }
+    }
+
+    abstract fun viewCreated(binding: T)
 
     override fun onDestroyView() {
         super.onDestroyView()

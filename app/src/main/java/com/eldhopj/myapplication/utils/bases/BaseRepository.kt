@@ -2,12 +2,15 @@ package com.eldhopj.myapplication.utils.bases
 
 import com.eldhopj.myapplication.data.remote.ErrorData
 import com.eldhopj.myapplication.data.remote.Result
+import java.io.IOException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.retry
 import retrofit2.Response
 
 /**
@@ -70,6 +73,13 @@ open class BaseRepository {
             }
         } else {
             emit(Result.Error(ErrorData(response.code(), response.message())))
+        }
+    }.retry(retries = 3) { cause ->
+        if (cause is IOException) {
+            delay(500)
+            return@retry true
+        } else {
+            return@retry false
         }
     }.catch { e ->
         emit(Result.Loading(false))
