@@ -3,7 +3,8 @@ package com.eldhopj.myapplication.data.repositories
 import com.eldhopj.myapplication.data.remote.Result
 import com.eldhopj.myapplication.data.remote.handler.EveryThingApiHandler
 import com.eldhopj.myapplication.domain.model.News
-import com.eldhopj.myapplication.utils.bases.BaseRepository
+import com.eldhopj.myapplication.utils.bases.baseRepository.ApiCall
+import com.eldhopj.myapplication.utils.bases.baseRepository.SafeApiCall
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
@@ -16,7 +17,7 @@ import kotlinx.coroutines.flow.Flow
  */
 @ViewModelScoped
 class EveryThingApiRepoImpl @Inject constructor(private val everyThingApiHandler: EveryThingApiHandler) :
-    BaseRepository(), EveryThingApiRepo {
+    ApiCall by SafeApiCall(), EveryThingApiRepo {
 
     /**
      * Fetch news
