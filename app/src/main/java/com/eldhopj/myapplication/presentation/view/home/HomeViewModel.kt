@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.eldhopj.myapplication.data.remote.Result
 import com.eldhopj.myapplication.data.repositories.EveryThingApiRepo
+import com.eldhopj.myapplication.domain.mapper.map
 import com.eldhopj.myapplication.domain.model.News
 import com.eldhopj.myapplication.utils.bases.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

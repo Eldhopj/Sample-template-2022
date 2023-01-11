@@ -18,15 +18,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private val viewModel by viewModels<HomeViewModel>()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun viewCreated(binding: FragmentHomeBinding) {
+        binding.apply {
+            viewModel = viewModel
+            lifecycleOwner = viewLifecycleOwner
+        }
         viewModel.fetchNews("tesla", "publishedAt")
         observeNews()
-    }
-
-    override fun viewCreated(binding: FragmentHomeBinding) {
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = viewLifecycleOwner
     }
 
     private fun observeNews() {

@@ -38,6 +38,9 @@ abstract class BaseFragment<T : ViewDataBinding>(private val bindingInflater: (i
         binding?.let { viewCreated(it) }
     }
 
+    /**
+     * It is same as onViewCreated, so no need to override onViewCreated again on fragment
+     */
     abstract fun viewCreated(binding: T)
 
     override fun onDestroyView() {
