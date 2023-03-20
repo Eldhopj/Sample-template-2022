@@ -53,8 +53,8 @@ android {
         jvmTarget = '11'
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
 
 }

@@ -2,7 +2,7 @@ package com.eldhopj.myapplication.data.remote.handler
 
 import com.eldhopj.myapplication.data.remote.queries.EveryThingApiQuery
 import com.eldhopj.myapplication.data.remote.service.EveryThingApiService
-import com.eldhopj.myapplication.domain.model.News
+import com.eldhopj.myapplication.domain.model.response.NewsResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 import retrofit2.Response
@@ -25,7 +25,7 @@ class EveryThingApiHandler @Inject constructor(retrofit: Retrofit) {
     /**
      * API to get categories
      */
-    suspend fun news(query: String, sortBy: String): Response<News> {
+    suspend fun news(query: String, sortBy: String): Response<NewsResponse> {
         return everyThingApiService.everyThing(EveryThingApiQuery(query, sortBy).toMap())
     }
 }

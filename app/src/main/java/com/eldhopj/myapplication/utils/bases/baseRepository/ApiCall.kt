@@ -1,6 +1,6 @@
 package com.eldhopj.myapplication.utils.bases.baseRepository
 
-import com.eldhopj.myapplication.data.remote.Result
+import com.eldhopj.myapplication.data.remote.Output
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -25,5 +25,5 @@ interface ApiCall {
     fun <T> safeApiCall(
         dispatcher: CoroutineDispatcher = Dispatchers.IO,
         apiCall: suspend () -> Response<T>
-    ): Flow<Result<T>>
+    ): Flow<Output<T>>
 }

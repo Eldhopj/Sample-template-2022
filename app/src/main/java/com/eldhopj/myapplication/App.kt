@@ -14,6 +14,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        // Square Logcat
         AndroidLogcatLogger.installOnDebuggableApp(this)
     }
 }

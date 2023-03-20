@@ -1,8 +1,8 @@
 package com.eldhopj.myapplication.data.repositories
 
-import com.eldhopj.myapplication.data.remote.Result
+import com.eldhopj.myapplication.data.remote.Output
 import com.eldhopj.myapplication.data.remote.handler.EveryThingApiHandler
-import com.eldhopj.myapplication.domain.model.News
+import com.eldhopj.myapplication.domain.model.response.NewsResponse
 import com.eldhopj.myapplication.utils.bases.baseRepository.ApiCall
 import com.eldhopj.myapplication.utils.bases.baseRepository.SafeApiCall
 import dagger.hilt.android.scopes.ViewModelScoped
@@ -26,7 +26,7 @@ class EveryThingApiRepoImpl @Inject constructor(private val everyThingApiHandler
      * @param sortBy
      * @return
      */
-    override fun fetchNews(query: String, sortBy: String): Flow<Result<News>> = safeApiCall {
+    override fun fetchNews(query: String, sortBy: String): Flow<Output<NewsResponse>> = safeApiCall {
         everyThingApiHandler.news(query, sortBy)
     }
 }

@@ -1,7 +1,7 @@
 package com.eldhopj.myapplication.data.repositories
 
-import com.eldhopj.myapplication.data.remote.Result
-import com.eldhopj.myapplication.domain.model.News
+import com.eldhopj.myapplication.data.remote.Output
+import com.eldhopj.myapplication.domain.model.response.NewsResponse
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -17,5 +17,5 @@ interface EveryThingApiRepo {
      * @param sortBy
      * @return
      */
-    fun fetchNews(query: String, sortBy: String): Flow<Result<News>>
+    fun fetchNews(query: String, sortBy: String): Flow<Output<NewsResponse>>
 }

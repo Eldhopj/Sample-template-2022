@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.domain.model
+package com.eldhopj.myapplication.domain.model.response
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName

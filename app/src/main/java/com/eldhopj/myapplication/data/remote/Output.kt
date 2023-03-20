@@ -9,15 +9,15 @@ import com.eldhopj.myapplication.utils.constants.StringConstants
  * @constructor Create empty Network response
  * @author eldhopj
  */
-sealed class Result<out T> {
+sealed class Output<out T> {
 
-    data class Loading(val isLoading: Boolean) : Result<Nothing>()
+    data class Loading(val isLoading: Boolean) : Output<Nothing>()
 
-    data class Success<out T>(val data: T?) : Result<T>()
+    data class Success<out T>(val data: T?) : Output<T>()
 
-    data class Error(val errorData: ErrorData) : Result<Nothing>()
+    data class Error(val errorData: ErrorData) : Output<Nothing>()
 
-    data class Exception(val throwable: Throwable) : Result<Nothing>()
+    data class Exception(val throwable: Throwable) : Output<Nothing>()
 }
 
 class ErrorData(val code: Int, val errorMessage: String? = StringConstants.UNKNOWN_ERROR)

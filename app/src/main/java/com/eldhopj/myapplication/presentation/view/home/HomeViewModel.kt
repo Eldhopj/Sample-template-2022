@@ -3,10 +3,12 @@ package com.eldhopj.myapplication.presentation.view.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.eldhopj.myapplication.data.remote.Result
+import com.eldhopj.myapplication.data.remote.Output
 import com.eldhopj.myapplication.data.repositories.EveryThingApiRepo
-import com.eldhopj.myapplication.domain.mapper.map
-import com.eldhopj.myapplication.domain.model.News
+import com.eldhopj.myapplication.domain.mapper.toMapper
+import com.eldhopj.myapplication.domain.model.mapper.News
+import com.eldhopj.myapplication.domain.model.mapper.NewsArticle
+import com.eldhopj.myapplication.domain.model.response.NewsResponse
 import com.eldhopj.myapplication.utils.bases.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -23,12 +25,12 @@ class HomeViewModel @Inject constructor(
     private val repoEveryThing: EveryThingApiRepo,
 ) : BaseViewModel() {
 
-    private var mutableNewsLiveData = MutableLiveData<News>()
+    private var mutableNewsLiveDataResponse = MutableLiveData<News>()
 
     /**
      * News live data
      */
-    val newsLiveData: LiveData<News> = mutableNewsLiveData
+    val newsLiveData: LiveData<News> = mutableNewsLiveDataResponse
 
     /**
      * Fetch news
@@ -40,18 +42,18 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             repoEveryThing.fetchNews(query, sortBy).collect { response ->
                 when (response) {
-                    is Result.Loading -> {
+                    is Output.Loading -> {
                         setLoading(response.isLoading)
                     }
-                    is Result.Success -> {
+                    is Output.Success -> {
                         response.data?.let {
-                            mutableNewsLiveData.value = it
+                            mutableNewsLiveDataResponse.value = it.toMapper()
                         }
                     }
-                    is Result.Error -> {
+                    is Output.Error -> {
                         handleError(response.errorData)
                     }
-                    is Result.Exception -> {
+                    is Output.Exception -> {
                         handleException(response.throwable)
                     }
                 }

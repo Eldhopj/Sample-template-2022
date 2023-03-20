@@ -1,7 +1,7 @@
 package com.eldhopj.myapplication.utils.bases.baseRepository
 
 import com.eldhopj.myapplication.data.remote.ErrorData
-import com.eldhopj.myapplication.data.remote.Result
+import com.eldhopj.myapplication.data.remote.Output
 import java.io.IOException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
@@ -17,25 +17,25 @@ class SafeApiCall : ApiCall {
     override fun <T> safeApiCall(
         dispatcher: CoroutineDispatcher,
         apiCall: suspend () -> Response<T>
-    ): Flow<Result<T>> = flow {
-        emit(Result.Loading(true))
+    ): Flow<Output<T>> = flow {
+        emit(Output.Loading(true))
         val response = apiCall()
-        emit(Result.Loading(false))
+        emit(Output.Loading(false))
         if (response.isSuccessful) {
             val data = response.body()
             if (data != null) {
-                emit(Result.Success(data))
+                emit(Output.Success(data))
             } else {
                 val errorCode = response.code()
                 val error = response.errorBody()
                 if (error != null) {
-                    emit(Result.Error(ErrorData(errorCode, error.toString())))
+                    emit(Output.Error(ErrorData(errorCode, error.toString())))
                 } else {
-                    emit(Result.Error(ErrorData(errorCode)))
+                    emit(Output.Error(ErrorData(errorCode)))
                 }
             }
         } else {
-            emit(Result.Error(ErrorData(response.code(), response.message())))
+            emit(Output.Error(ErrorData(response.code(), response.message())))
         }
     }.retry(retries = 3) { cause ->
         if (cause is IOException) {
@@ -45,7 +45,7 @@ class SafeApiCall : ApiCall {
             return@retry false
         }
     }.catch { e ->
-        emit(Result.Loading(false))
-        emit(Result.Exception(e))
+        emit(Output.Loading(false))
+        emit(Output.Exception(e))
     }.flowOn(dispatcher)
 }

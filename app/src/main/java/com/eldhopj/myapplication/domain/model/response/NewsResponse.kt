@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.domain.model
+package com.eldhopj.myapplication.domain.model.response
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName
  * @constructor Create empty News
  */
 @Keep
-data class News(
+data class NewsResponse(
     @SerializedName("status")
     val status: String? = null, // ok
     @SerializedName("totalResults")

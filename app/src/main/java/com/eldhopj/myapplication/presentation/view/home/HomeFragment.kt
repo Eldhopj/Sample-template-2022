@@ -1,7 +1,5 @@
 package com.eldhopj.myapplication.presentation.view.home
 
-import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.viewModels
 import com.eldhopj.myapplication.databinding.FragmentHomeBinding
 import com.eldhopj.myapplication.utils.bases.BaseFragment
