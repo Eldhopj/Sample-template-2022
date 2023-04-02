@@ -19,7 +19,7 @@ interface EveryThingApiService {
      * @return [Output]
      */
     @GET(ApiEndPoints.EVERYTHING)
-    suspend fun everyThing(
+    suspend fun everyNews(
         @QueryMap map: Map<String, String>
     ): Response<NewsResponse>
 }

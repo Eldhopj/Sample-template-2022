@@ -23,13 +23,9 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     protected fun handleException(
-        throwable: Throwable,
-        tag: String = "",
-        apiServiceKey: String = "",
-        request: Any? = null
+        throwable: Throwable
     ) {
         _loading.value = false
-        val reqStr = request?.toString() ?: ""
         val errorCode = when (throwable) {
             is InterruptedIOException -> {
                 800
@@ -48,13 +44,10 @@ abstract class BaseViewModel : ViewModel() {
             }
         }
         _errorMessage.value = ErrorData(errorCode, throwable.localizedMessage)
-        logcat("API_Exception") { reqStr }
     }
 
     protected fun handleError(
-        errorData: ErrorData,
-        tag: String = "",
-        request: Any? = null
+        errorData: ErrorData
     ) {
         _errorMessage.value = errorData
     }

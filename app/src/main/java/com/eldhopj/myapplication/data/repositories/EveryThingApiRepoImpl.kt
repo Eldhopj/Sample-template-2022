@@ -1,7 +1,8 @@
 package com.eldhopj.myapplication.data.repositories
 
 import com.eldhopj.myapplication.data.remote.Output
-import com.eldhopj.myapplication.data.remote.handler.EveryThingApiHandler
+import com.eldhopj.myapplication.data.remote.queries.EveryNewsApiQuery
+import com.eldhopj.myapplication.data.remote.service.EveryThingApiService
 import com.eldhopj.myapplication.domain.model.response.NewsResponse
 import com.eldhopj.myapplication.utils.bases.baseRepository.ApiCall
 import com.eldhopj.myapplication.utils.bases.baseRepository.SafeApiCall
@@ -12,11 +13,11 @@ import kotlinx.coroutines.flow.Flow
 /**
  * Api repo
  *
- * @property everyThingApiHandler
+ * @property apiService
  * @constructor Create empty Api repo
  */
 @ViewModelScoped
-class EveryThingApiRepoImpl @Inject constructor(private val everyThingApiHandler: EveryThingApiHandler) :
+class EveryThingApiRepoImpl @Inject constructor(private val apiService: EveryThingApiService) :
     ApiCall by SafeApiCall(), EveryThingApiRepo {
 
     /**
@@ -27,6 +28,6 @@ class EveryThingApiRepoImpl @Inject constructor(private val everyThingApiHandler
      * @return
      */
     override fun fetchNews(query: String, sortBy: String): Flow<Output<NewsResponse>> = safeApiCall {
-        everyThingApiHandler.news(query, sortBy)
+        apiService.everyNews(EveryNewsApiQuery(query, sortBy).toMap())
     }
 }

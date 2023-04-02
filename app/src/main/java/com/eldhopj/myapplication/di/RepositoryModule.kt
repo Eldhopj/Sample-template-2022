@@ -1,6 +1,6 @@
 package com.eldhopj.myapplication.di
 
-import com.eldhopj.myapplication.data.remote.handler.EveryThingApiHandler
+import com.eldhopj.myapplication.data.remote.service.EveryThingApiService
 import com.eldhopj.myapplication.data.repositories.EveryThingApiRepo
 import com.eldhopj.myapplication.data.repositories.EveryThingApiRepoImpl
 import dagger.Module
@@ -20,6 +20,6 @@ object RepositoryModule {
 
     @Provides
     @ViewModelScoped
-    fun provideEverythingRepo(everyThingApiHandler: EveryThingApiHandler): EveryThingApiRepo =
-        EveryThingApiRepoImpl(everyThingApiHandler)
+    fun provideEverythingRepo(apiService: EveryThingApiService): EveryThingApiRepo =
+        EveryThingApiRepoImpl(apiService)
 }

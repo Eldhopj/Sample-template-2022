@@ -42,19 +42,14 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             repoEveryThing.fetchNews(query, sortBy).collect { response ->
                 when (response) {
-                    is Output.Loading -> {
-                        setLoading(response.isLoading)
+                    is Output.Loading -> setLoading(response.isLoading)
+                    is Output.Success -> response.data?.let {
+                        mutableNewsLiveDataResponse.value = it.toMapper()
                     }
-                    is Output.Success -> {
-                        response.data?.let {
-                            mutableNewsLiveDataResponse.value = it.toMapper()
-                        }
-                    }
-                    is Output.Error -> {
-                        handleError(response.errorData)
-                    }
-                    is Output.Exception -> {
-                        handleException(response.throwable)
+                    is Output.Error -> handleError(response.errorData)
+                    is Output.Exception -> handleException(response.throwable)
+                    else -> {
+                        // no op
                     }
                 }
             }
