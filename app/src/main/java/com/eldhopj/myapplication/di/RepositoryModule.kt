@@ -1,10 +1,9 @@
 package com.eldhopj.myapplication.di
 
-import com.eldhopj.myapplication.data.remote.service.EveryThingApiService
 import com.eldhopj.myapplication.data.repositories.EveryThingApiRepo
 import com.eldhopj.myapplication.data.repositories.EveryThingApiRepoImpl
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
@@ -16,10 +15,9 @@ import dagger.hilt.android.scopes.ViewModelScoped
  */
 @Module
 @InstallIn(ViewModelComponent::class)
-object RepositoryModule {
+abstract class RepositoryModule {
 
-    @Provides
+    @Binds
     @ViewModelScoped
-    fun provideEverythingRepo(apiService: EveryThingApiService): EveryThingApiRepo =
-        EveryThingApiRepoImpl(apiService)
+    abstract fun bindsEverythingRepo(repoImpl: EveryThingApiRepoImpl): EveryThingApiRepo
 }
