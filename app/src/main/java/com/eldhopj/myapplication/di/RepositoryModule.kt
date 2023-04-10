@@ -1,7 +1,7 @@
 package com.eldhopj.myapplication.di
 
-import com.eldhopj.myapplication.data.repositories.EveryThingApiRepo
 import com.eldhopj.myapplication.data.repositories.EveryThingApiRepoImpl
+import com.eldhopj.myapplication.domain.RepoInterfaces.EveryThingApiRepo
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

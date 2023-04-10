@@ -3,12 +3,10 @@ package com.eldhopj.myapplication.presentation.view.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.eldhopj.myapplication.data.remote.Output
-import com.eldhopj.myapplication.data.repositories.EveryThingApiRepo
+import com.eldhopj.myapplication.domain.RepoInterfaces.EveryThingApiRepo
 import com.eldhopj.myapplication.domain.mapper.toMapper
+import com.eldhopj.myapplication.domain.model.handlers.Output
 import com.eldhopj.myapplication.domain.model.mapper.News
-import com.eldhopj.myapplication.domain.model.mapper.NewsArticle
-import com.eldhopj.myapplication.domain.model.response.NewsResponse
 import com.eldhopj.myapplication.utils.bases.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -48,9 +46,6 @@ class HomeViewModel @Inject constructor(
                     }
                     is Output.Error -> handleError(response.errorData)
                     is Output.Exception -> handleException(response.throwable)
-                    else -> {
-                        // no op
-                    }
                 }
             }
         }

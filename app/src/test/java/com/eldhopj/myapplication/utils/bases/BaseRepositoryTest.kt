@@ -2,7 +2,7 @@ package com.eldhopj.myapplication.utils.bases
 
 import android.content.Context
 import com.eldhopj.myapplication.data.remote.ErrorData
-import com.eldhopj.myapplication.data.remote.Output
+import com.eldhopj.myapplication.domain.model.handlers.Output
 import com.eldhopj.myapplication.utils.DeserializerAdapter
 import com.eldhopj.myapplication.utils.MockResponseFileReader
 import com.google.gson.GsonBuilder

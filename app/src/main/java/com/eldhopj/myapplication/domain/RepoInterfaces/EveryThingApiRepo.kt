@@ -1,6 +1,6 @@
-package com.eldhopj.myapplication.data.repositories
+package com.eldhopj.myapplication.domain.RepoInterfaces
 
-import com.eldhopj.myapplication.data.remote.Output
+import com.eldhopj.myapplication.domain.model.handlers.Output
 import com.eldhopj.myapplication.domain.model.response.NewsResponse
 import kotlinx.coroutines.flow.Flow
 
