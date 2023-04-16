@@ -1,4 +1,4 @@
-package com.eldhopj.myapplication.domain.RepoInterfaces
+package com.eldhopj.myapplication.domain.repoInterfaces
 
 import com.eldhopj.myapplication.domain.model.handlers.Output
 import com.eldhopj.myapplication.domain.model.response.NewsResponse
