@@ -7,7 +7,7 @@ package com.eldhopj.myapplication.data.remote.queries
  * @property sortBy
  * @constructor Create empty Every thing api query
  */
-class EveryThingApiQuery(
+class EveryNewsApiQuery(
     private val query: String? = null,
     private val sortBy: String? = null
 ) {

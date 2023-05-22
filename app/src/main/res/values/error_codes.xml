@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_code_400">Bad request</string>
+    <string name="error_code_401">Unauthorized</string>
+    <string name="error_code_403">Forbidden</string>
+    <string name="error_code_404">Not found</string>
+
+    <string name="error_code_500">Server error</string>
+    <string name="error_code_503">Service unavailable</string>
+
+    <string name="error_code_800">No Internet Connectivity</string>
+    <string name="error_code_801">Something went wrong.</string>
+    <string name="error_code_803">Something went wrong</string>
+
+
+    <string name="error_code_200">Something went wrong.</string>
+</resources>
